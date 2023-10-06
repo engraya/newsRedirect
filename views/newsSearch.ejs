@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/headerNav') %>
+
+  <main id="main">
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+            <h2 data-aos="fade-in"><%- searchID  %></h2>
+          <h5 data-aos="fade-in">Top Headlines</h5>
+
+        </div>
+
+        <div class="row">
+            <% if (articles != null) { %>
+            <% articles.articles.forEach(function(article, index) { %>
+          <div class="col-md-4 d-flex" data-aos="fade-right">
+          
+            <div class="card">
+              <div class="card-img">
+                <img src="<%- article.urlToImage  %>">
+              </div>
+              <div class="card-body">
+                <h6 class="card-title"><span><%- article.title  %></span></h6>
+                <hr>
+                <div class="container">
+                    <small><%- article.description  %></small><br>
+                </div>
+                <hr>
+                <small>Published at : <%- article.publishedAt  %></small><br>
+                <small class="fst-italic"><%- article.author  %> </small><br>
+                <div class="read-more text-white"><a class="btn btn-sm btn-success text-white" href="<%- article.url  %>" target="_blank"><i class="bi bi-arrow-right text-white"></i> Read More</a></div>
+              </div>
+            </div>
+      
+        </div>
+        <% }) %>
+        <% } else { %>
+            No News Found
+            
+            <% } %>
+      </div>
+    </section><!-- End Services Section -->
+
+  </main>
+
+  <%- include('./partials/footer') %>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <%- include('./partials/jsScripts') %>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
