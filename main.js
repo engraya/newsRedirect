@@ -5,7 +5,7 @@ const expressEjsLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
 const coreNewsRoute = require('./routes/coreNewsRoute');
 
-
+const PORT = process.env.PORT || 5000;
 
 // MiddleWARES
 app.set("views", path.join(__dirname, "views"));
@@ -19,7 +19,7 @@ app.use('/', coreNewsRoute);
 app.use('/articles', coreNewsRoute);
 
 
-const PORT = 5000;
+
 
 app.listen(PORT, () => {
     console.log(`Server is Listening on Port ${PORT}........`)
